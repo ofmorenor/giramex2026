@@ -59,7 +59,7 @@ Esta es la **fuente de información** del viaje. Edita este archivo y los cambio
 
 ### Lun 19 – Jue 21 Oct — Días libres en Toluca
 - **Actividad:** Días libres, paseo por Toluca.
-- **Actividad:** Recoger carro el **miércoles 19** a las 6:00pm en [Localiza](https://maps.app.goo.gl/cSicnya13ccPdLU86)
+- **Actividad:** Recoger carro el **lunes 19** a las 6:00pm en [Localiza](https://maps.app.goo.gl/cSicnya13ccPdLU86)
 - **Pendiente:** Sacar dinero en efectivo, cambiar dólares
 
 ### Mie 21 Oct
