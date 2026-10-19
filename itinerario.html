@@ -130,6 +130,27 @@
   article.day.is-free .what{background:transparent; border-style:dashed; border-width:1.5px; box-shadow:none}
   article.day.is-free .when .dn{color:var(--muted)}
 
+  /* Días pasados: contraídos, se pueden abrir */
+  article.day{scroll-margin-top:90px}
+  .day-toggle{all:unset; cursor:pointer; display:flex; align-items:center; gap:10px; width:100%}
+  .day-toggle::after{content:""; margin-left:auto; flex:none; width:8px; height:8px;
+    border-right:2px solid var(--muted); border-bottom:2px solid var(--muted);
+    transform:translateY(-2px) rotate(45deg); transition:transform .2s}
+  article.day.open .day-toggle::after{transform:translateY(2px) rotate(-135deg)}
+  .day-toggle:focus-visible{outline:3px solid var(--rosa); outline-offset:4px; border-radius:6px}
+  article.day.is-past .what{background:var(--surface-2); border-color:transparent; box-shadow:none; padding-block:12px}
+  article.day.is-past .what h3{margin:0; font-size:16px; color:var(--muted)}
+  article.day.is-past.open .what h3{margin-bottom:10px}
+  article.day.is-past .when{color:var(--muted)}
+  article.day.is-past .when .dn{font-size:24px}
+  article.day.is-past:not(.open):not(.force-open) .day-body{display:none}
+
+  /* Hoy / próximo */
+  article.day.is-now .what{border:2px solid var(--rosa)}
+  .chip{display:inline-block; font-size:13px; font-weight:700; color:#fff; background:var(--rosa);
+    border-radius:999px; padding:2px 10px; margin-bottom:8px}
+  .btn-today{border-color:var(--rosa); color:var(--rosa)}
+
   /* ---------- Pendientes ---------- */
   #pendientes-por-confirmar .section-body > ul{gap:4px; padding:10px 20px}
   #pendientes-por-confirmar li{position:relative; padding:9px 0 9px 32px; border-bottom:1px solid var(--line)}
@@ -176,12 +197,13 @@
     .when .wd,.when .mo{font-size:12px}
     .what{padding:14px 15px}
     .what li strong.label{display:block; min-width:0}
+    article.day.is-past .when .dn{font-size:20px}
     .picado span:nth-child(n+9){display:none}
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     .picado span{animation:none}
-    details.place > summary::after{transition:none}
+    details.place > summary::after, .day-toggle::after{transition:none}
   }
 </style>
 </head>
@@ -203,6 +225,7 @@
         <input id="q" type="search" placeholder="Buscar día, lugar o contacto" autocomplete="off" aria-label="Buscar en el itinerario">
       </label>
       <nav class="nav" id="nav" aria-label="Secciones"></nav>
+      <button class="btn btn-today" id="goToday" hidden>Hoy</button>
       <button class="btn" id="theme" title="Cambiar tema" aria-label="Cambiar entre tema claro y oscuro">🌓</button>
     </div>
   </div>
@@ -309,6 +332,24 @@ function whenHTML(date){
   return `<span class="mo">${esc(date)}</span>`;
 }
 
+/* Fecha del título → {start, end} como Date (año tomado del título del .md) */
+const MONTHS={ene:0,feb:1,mar:2,abr:3,may:4,jun:5,jul:6,ago:7,sep:8,oct:9,nov:10,dic:11};
+let YEAR=new Date().getFullYear();
+function monthIdx(s){ return MONTHS[slug(s||"").slice(0,3)]; }
+function parseRange(date){
+  let m=date.match(/^(\S+)\s+(\d{1,2})\s+(\S+)$/);
+  if(m && monthIdx(m[3])!=null){
+    const d=new Date(YEAR, monthIdx(m[3]), +m[2]);
+    return {start:d, end:d};
+  }
+  m=date.match(/^(\S+)\s+(\d{1,2})(?:\s+(\S+))?\s*[–-]\s*(\S+)\s+(\d{1,2})\s+(\S+)$/);
+  if(m && monthIdx(m[6])!=null){
+    const m1=monthIdx(m[3]||m[6]);
+    return {start:new Date(YEAR, m1, +m[2]), end:new Date(YEAR, monthIdx(m[6]), +m[5])};
+  }
+  return null;
+}
+
 function buildDays(group, body){
   const grid=document.createElement("div"); grid.className="days";
   // Pre-contenido (p/blockquote) antes del primer h3 va directo al body
@@ -326,8 +367,10 @@ function buildDays(group, body){
       const date=parts[0].trim();
       const rest=parts.slice(1).join("—").trim();
       if(/libre/i.test(rest)) card.classList.add("is-free");
-      card.innerHTML=`<div class="when">${whenHTML(date)}</div><div class="what"><h3>${esc(rest||date)}</h3></div>`;
-      const what=card.querySelector(".what");
+      card.innerHTML=`<div class="when">${whenHTML(date)}</div><div class="what"><h3>${esc(rest||date)}</h3><div class="day-body"></div></div>`;
+      const range=parseRange(date);
+      if(range){ card.dataset.start=+range.start; card.dataset.end=+range.end; }
+      const what=card.querySelector(".day-body");
       // Añadir contenido siguiente (ul/p) hasta el próximo h3
       while(k+1<group.length && group[k+1].tagName!=="H3"){
         k++;
@@ -380,6 +423,48 @@ function buildPlaces(group, body){
   body.appendChild(wrap);
 }
 
+/* ---------- Línea de tiempo: contraer días pasados y saltar a hoy ---------- */
+function setupTimeline(){
+  // ?hoy=2026-10-22 permite probar otra fecha
+  const param=new URLSearchParams(location.search).get("hoy");
+  const now=param ? new Date(param+"T00:00") : new Date();
+  const today=new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  const days=[...document.querySelectorAll("article.day[data-start]")];
+  let target=null, hasPast=false;
+
+  days.forEach(card=>{
+    const start=+card.dataset.start, end=+card.dataset.end;
+    if(end<today){
+      hasPast=true;
+      card.classList.add("is-past");
+      const h3=card.querySelector("h3");
+      const btn=document.createElement("button");
+      btn.className="day-toggle"; btn.type="button"; btn.setAttribute("aria-expanded","false");
+      btn.innerHTML=h3.innerHTML; h3.innerHTML=""; h3.appendChild(btn);
+      btn.addEventListener("click",()=>{
+        const open=card.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open);
+      });
+    } else if(!target){
+      target=card;
+      card.classList.add("is-now");
+      const chip=document.createElement("span");
+      chip.className="chip"; chip.textContent = start<=today ? "Hoy" : "Próximo";
+      card.querySelector(".what").prepend(chip);
+    }
+  });
+
+  if(!target) return;
+  const btn=document.getElementById("goToday");
+  btn.textContent=target.querySelector(".chip").textContent;
+  btn.hidden=false;
+  btn.addEventListener("click",()=>target.scrollIntoView({behavior:"smooth", block:"start"}));
+  // Solo salta si ya empezó la gira y no se abrió con un #ancla
+  if(hasPast && !location.hash){
+    requestAnimationFrame(()=>target.scrollIntoView({behavior:"instant", block:"start"}));
+  }
+}
+
 /* ---------- Búsqueda / filtro ---------- */
 function setupSearch(){
   const q=document.getElementById("q");
@@ -392,6 +477,7 @@ function setupSearch(){
       el.style.display = hit ? "" : "none";
       if(hit) visible++;
       if(el.tagName==="DETAILS") el.open = term && hit;
+      else el.classList.toggle("force-open", !!term && hit);
     });
     // Oculta secciones sin tarjetas visibles (solo las que tienen tarjetas)
     document.querySelectorAll("section.section").forEach(sec=>{
@@ -420,8 +506,9 @@ const MD_FILE="itinerario-mex.md";
 fetch(MD_FILE+"?t="+Date.now())
   .then(r=>{ if(!r.ok) throw new Error(r.status); return r.text(); })
   .then(md=>{
+    const y=md.match(/^#\s.*\b(20\d\d)\b/m); if(y) YEAR=+y[1];
     build(md);
-    setupSearch(); setupTheme();
+    setupTimeline(); setupSearch(); setupTheme();
     document.getElementById("footer").innerHTML=
       "Esta página se genera desde <strong>"+MD_FILE+"</strong>. Edita ese archivo y recarga para ver los cambios.";
   })
