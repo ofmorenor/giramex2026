@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gira México 2026 — Itinerario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Shrikhand&display=swap" rel="stylesheet">
+<style>
+  /* Paleta: rosa mexicano (fechas), añil (tinta y cabecera), jade (etiquetas/enlaces),
+     cempasúchil (solo pendientes). Fondo frío casi blanco. */
+  :root{
+    --bg:#f7f6fb; --surface:#ffffff; --surface-2:#efeef7; --ink:#1f2142; --muted:#595c7a;
+    --line:#e0dfee; --rosa:#d6006f; --jade:#0a7568; --marigold:#f2a20c; --marigold-ink:#7a4d00;
+    --hero:#23285a; --hero-ink:#ffffff; --hero-muted:#c9cdf0;
+    --shadow:0 1px 2px rgba(31,33,66,.05),0 4px 14px rgba(31,33,66,.06);
+    --display:"Shrikhand","Cooper Black","Georgia",serif;
+    --text:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12142a; --surface:#1b1e3a; --surface-2:#242849; --ink:#edeef8; --muted:#a6a9c8;
+      --line:#2f3358; --rosa:#ff5aae; --jade:#3ccfbc; --marigold:#ffb627; --marigold-ink:#ffcf6e;
+      --hero:#1b1e3a; --hero-ink:#ffffff; --hero-muted:#b4b8e0;
+      --shadow:0 1px 2px rgba(0,0,0,.25),0 8px 24px rgba(0,0,0,.3);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12142a; --surface:#1b1e3a; --surface-2:#242849; --ink:#edeef8; --muted:#a6a9c8;
+    --line:#2f3358; --rosa:#ff5aae; --jade:#3ccfbc; --marigold:#ffb627; --marigold-ink:#ffcf6e;
+    --hero:#1b1e3a; --hero-ink:#ffffff; --hero-muted:#b4b8e0;
+    --shadow:0 1px 2px rgba(0,0,0,.25),0 8px 24px rgba(0,0,0,.3);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.55 var(--text); -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--jade); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px}
+  a:hover{text-decoration-thickness:2px}
+  :focus-visible{outline:3px solid var(--rosa); outline-offset:2px; border-radius:6px}
+
+  /* ---------- Cabecera con papel picado ---------- */
+  header.hero{background:var(--hero); color:var(--hero-ink); overflow:hidden}
+  .picado{max-width:1040px; margin:0 auto; padding:0 18px; display:flex; gap:8px; position:relative; height:64px}
+  .picado::before{content:""; position:absolute; left:0; right:0; top:8px; height:2px; background:rgba(255,255,255,.3)}
+  .picado span{
+    flex:1 1 0; margin-top:9px; height:54px; background:var(--c);
+    -webkit-mask:var(--flag) center/100% 100% no-repeat; mask:var(--flag) center/100% 100% no-repeat;
+    transform-origin:50% 0; animation:hang .9s cubic-bezier(.3,1.6,.5,1) both; animation-delay:calc(var(--i) * 45ms);
+  }
+  .picado span:nth-child(4n+1){--c:#ff3d9a}
+  .picado span:nth-child(4n+2){--c:#ffb627}
+  .picado span:nth-child(4n+3){--c:#2fd1b9}
+  .picado span:nth-child(4n+4){--c:#8fb8ff}
+  :root{
+    --flag:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 70'%3E%3Cpath fill-rule='evenodd' d='M0 0H60V62L55 70L50 62L45 70L40 62L35 70L30 62L25 70L20 62L15 70L10 62L5 70L0 62Z M23 31a7 7 0 1 0 14 0a7 7 0 1 0-14 0Z M27 16a3 3 0 1 0 6 0a3 3 0 1 0-6 0Z M27 46a3 3 0 1 0 6 0a3 3 0 1 0-6 0Z M12 31a3 3 0 1 0 6 0a3 3 0 1 0-6 0Z M42 31a3 3 0 1 0 6 0a3 3 0 1 0-6 0Z M12 9l3-3l3 3l-3 3Z M42 9l3-3l3 3l-3 3Z M12 53l3-3l3 3l-3 3Z M42 53l3-3l3 3l-3 3Z'/%3E%3C/svg%3E");
+  }
+  @keyframes hang{from{transform:translateY(-26px) rotate(-6deg); opacity:0} to{transform:none; opacity:1}}
+
+  .hero-inner{max-width:1040px; margin:0 auto; padding:22px 18px 34px}
+  .hero h1{
+    font-family:var(--display); font-weight:400; margin:0 0 .3em;
+    font-size:clamp(40px,8vw,72px); line-height:1; letter-spacing:.005em; color:var(--hero-ink);
+  }
+  .hero blockquote{margin:0; color:var(--hero-muted); font-size:clamp(16px,2.4vw,19px); font-weight:500}
+  .hero blockquote p{margin:0}
+  .hero > .hero-inner > p{margin:16px 0 0; color:var(--hero-muted); font-size:14px; max-width:60ch}
+  .hero strong{color:var(--hero-ink)}
+
+  /* ---------- Barra de herramientas ---------- */
+  .toolbar{position:sticky; top:0; z-index:20; background:color-mix(in srgb,var(--bg) 90%, transparent);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+    padding:calc(10px + env(safe-area-inset-top, 0px)) 0 10px}
+  .toolbar-inner{max-width:1040px; margin:0 auto; padding:0 18px; display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+  .search{flex:1 1 220px; min-width:0; display:flex; align-items:center; gap:8px;
+    background:var(--surface); border:1.5px solid var(--line); border-radius:999px; padding:8px 14px}
+  .search:focus-within{border-color:var(--rosa)}
+  .search input{border:0; background:transparent; color:var(--ink); font:inherit; font-size:15px; width:100%; outline:none}
+  .search svg{flex:none; color:var(--muted)}
+  .nav{display:flex; gap:6px; flex-wrap:wrap}
+  .nav a, .btn{
+    font:inherit; font-size:14px; font-weight:600; padding:6px 13px; border-radius:999px; border:1.5px solid var(--line);
+    background:var(--surface); color:var(--ink); cursor:pointer; white-space:nowrap; text-decoration:none}
+  .nav a:hover,.btn:hover{border-color:var(--rosa); color:var(--rosa)}
+
+  /* ---------- Secciones ---------- */
+  .wrap{max-width:1040px; margin:0 auto; padding:0 18px 80px}
+  section.section{margin-top:48px; scroll-margin-top:80px}
+  .section > h2{
+    font-family:var(--display); font-weight:400; font-size:clamp(26px,4vw,34px); line-height:1.15;
+    margin:0 0 18px; color:var(--ink)}
+  .section-body > p{color:var(--muted); max-width:68ch}
+  .section-body > blockquote{
+    margin:0 0 18px; padding:12px 16px; background:var(--surface-2); border-radius:12px;
+    color:var(--muted); font-size:15px; max-width:72ch}
+  .section-body > blockquote p{margin:0}
+
+  /* Resumen: lista con etiquetas */
+  .section-body > ul{list-style:none; margin:0; padding:18px 20px; display:grid; gap:10px;
+    background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow)}
+  .section-body > ul li{font-size:15.5px}
+  .label{color:var(--jade); font-weight:700}
+
+  /* ---------- Itinerario como línea de tiempo ---------- */
+  .days{display:grid; gap:16px; position:relative}
+  .days::before{content:""; position:absolute; left:39px; top:12px; bottom:12px; width:2px;
+    background:repeating-linear-gradient(var(--line) 0 7px, transparent 7px 13px)}
+  article.day{display:grid; grid-template-columns:80px 1fr; gap:14px; align-items:start; position:relative}
+  .when{background:var(--bg); text-align:center; padding:6px 0; line-height:1; color:var(--rosa); position:relative}
+  .when .wd{display:block; font-size:13px; font-weight:700; color:var(--muted)}
+  .when .dn{display:block; font-size:34px; font-weight:800; letter-spacing:-.02em; margin:3px 0 2px}
+  .when .dn.range{font-size:22px; margin:6px 0 4px}
+  .when .mo{display:block; font-size:14px; font-weight:700}
+  .what{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:16px 20px; box-shadow:var(--shadow); min-width:0}
+  .what h3{margin:0 0 10px; font-size:19px; line-height:1.25; font-weight:700}
+  .what ul{list-style:none; margin:0; padding:0; display:grid; gap:7px}
+  .what li{font-size:15px; line-height:1.5}
+  .what li strong.label{display:inline-block; min-width:84px}
+  .what li.is-pending{background:color-mix(in srgb,var(--marigold) 18%, transparent);
+    border-radius:10px; padding:7px 11px; margin-top:3px}
+  .what li.is-pending strong.label{color:var(--marigold-ink)}
+  .what p{font-size:15px; color:var(--muted)}
+  article.day.is-free .what{background:transparent; border-style:dashed; border-width:1.5px; box-shadow:none}
+  article.day.is-free .when .dn{color:var(--muted)}
+
+  /* ---------- Pendientes ---------- */
+  #pendientes-por-confirmar .section-body > ul{gap:4px; padding:10px 20px}
+  #pendientes-por-confirmar li{position:relative; padding:9px 0 9px 32px; border-bottom:1px solid var(--line)}
+  #pendientes-por-confirmar li:last-child{border-bottom:0}
+  #pendientes-por-confirmar li::before{content:""; position:absolute; left:2px; top:13px; width:16px; height:16px;
+    border-radius:50%; border:2.5px solid var(--marigold); background:color-mix(in srgb,var(--marigold) 15%, transparent)}
+
+  /* ---------- Guía de lugares ---------- */
+  .places{display:grid; gap:10px}
+  details.place{background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden}
+  details.place > summary{
+    list-style:none; cursor:pointer; padding:16px 20px; font-size:19px; font-weight:700;
+    display:flex; align-items:center; gap:10px}
+  details.place > summary::-webkit-details-marker{display:none}
+  details.place > summary::after{content:""; margin-left:auto; width:10px; height:10px;
+    border-right:2.5px solid var(--rosa); border-bottom:2.5px solid var(--rosa);
+    transform:translateY(-3px) rotate(45deg); transition:transform .2s}
+  details.place[open] > summary::after{transform:translateY(2px) rotate(-135deg)}
+  details.place > summary:hover{color:var(--rosa)}
+  .place-body{padding:0 20px 20px; max-width:76ch}
+  .place-body p{font-size:15px; color:var(--muted); margin:16px 0 6px}
+  .place-body p > strong:only-child{color:var(--jade); font-size:15.5px; font-weight:700}
+  .place-body > blockquote{margin:0; padding:10px 14px; background:var(--surface-2); border-radius:10px}
+  .place-body > blockquote p{margin:0; font-size:14.5px}
+  .place-body ul{margin:0; padding-left:20px; display:grid; gap:6px}
+  .place-body li{font-size:15px}
+  .place-body li::marker{color:var(--rosa)}
+
+  hr{display:none}
+  code{background:var(--surface-2); padding:2px 6px; border-radius:5px; font-size:.9em}
+
+  .no-results{display:none; text-align:center; color:var(--muted); padding:30px}
+  footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; text-align:center}
+
+  .err{max-width:680px; margin:60px auto; background:var(--surface); border:1px solid var(--line);
+    border-radius:16px; padding:22px 24px; box-shadow:var(--shadow)}
+  .err h2{margin-top:0; font-size:20px}
+
+  @media (max-width:560px){
+    .days::before{left:27px}
+    article.day{grid-template-columns:56px 1fr; gap:10px}
+    .when .dn{font-size:26px}
+    .when .dn.range{font-size:16px}
+    .when .wd,.when .mo{font-size:12px}
+    .what{padding:14px 15px}
+    .what li strong.label{display:block; min-width:0}
+    .picado span:nth-child(n+9){display:none}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .picado span{animation:none}
+    details.place > summary::after{transition:none}
+  }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="picado" aria-hidden="true">
+      <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span>
+      <span style="--i:4"></span><span style="--i:5"></span><span style="--i:6"></span><span style="--i:7"></span>
+      <span style="--i:8"></span><span style="--i:9"></span><span style="--i:10"></span><span style="--i:11"></span>
+      <span style="--i:12"></span><span style="--i:13"></span>
+    </div>
+    <div class="hero-inner" id="hero"></div>
+  </header>
+
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="q" type="search" placeholder="Buscar día, lugar o contacto" autocomplete="off" aria-label="Buscar en el itinerario">
+      </label>
+      <nav class="nav" id="nav" aria-label="Secciones"></nav>
+      <button class="btn" id="theme" title="Cambiar tema" aria-label="Cambiar entre tema claro y oscuro">🌓</button>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div id="content"></div>
+    <p class="no-results" id="noResults">No hay resultados. Prueba con otra ciudad, fecha o nombre.</p>
+    <footer id="footer"></footer>
+  </main>
+
+<script>
+/* ---------- Mini Markdown parser (subconjunto usado en el .md) ---------- */
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function inline(s){
+  s = esc(s);
+  s = s.replace(/`([^`]+)`/g,'<code>$1</code>');
+  s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  s = s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  s = s.replace(/\*([^*]+)\*/g,'<em>$1</em>');
+  // Teléfonos tocables en el móvil
+  s = s.replace(/\+\d{2}(?:\s?\d){10}/g, t=>`<a href="tel:${t.replace(/\s/g,"")}">${t}</a>`);
+  return s;
+}
+function mdToHtml(md){
+  const lines = md.replace(/\r\n/g,"\n").split("\n");
+  let html="", para=[], list=[], quote=[];
+  const flushP=()=>{ if(para.length){ html+="<p>"+inline(para.join(" "))+"</p>"; para=[]; } };
+  const flushL=()=>{ if(list.length){ html+="<ul>"+list.map(li=>"<li>"+inline(li)+"</li>").join("")+"</ul>"; list=[]; } };
+  const flushQ=()=>{ if(quote.length){ html+="<blockquote><p>"+quote.map(inline).join("<br>")+"</p></blockquote>"; quote=[]; } };
+  const flushAll=()=>{ flushP(); flushL(); flushQ(); };
+  for(const raw of lines){
+    const line=raw.trimEnd();
+    if(!line.trim()){ flushAll(); continue; }
+    let m;
+    if(m=line.match(/^(#{1,6})\s+(.*)$/)){ flushAll(); const lv=m[1].length; html+=`<h${lv}>${inline(m[2])}</h${lv}>`; continue; }
+    if(/^(---|\*\*\*|___)\s*$/.test(line)){ flushAll(); html+="<hr>"; continue; }
+    if(m=line.match(/^>\s?(.*)$/)){ flushP(); flushL(); quote.push(m[1]); continue; }
+    if(m=line.match(/^[-*]\s+(.*)$/)){ flushP(); flushQ(); list.push(m[1]); continue; }
+    flushL(); flushQ(); para.push(line.trim());
+  }
+  flushAll();
+  return html;
+}
+function slug(s){return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")
+  .replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
+
+/* ---------- Render structured UI from flat markdown HTML ---------- */
+function build(md){
+  const flat=document.createElement("div");
+  flat.innerHTML=mdToHtml(md);
+  const nodes=[...flat.childNodes].filter(n=>n.nodeType===1);
+
+  // Hero = todo lo anterior al primer <h2>
+  const hero=document.getElementById("hero");
+  const content=document.getElementById("content");
+  const navEl=document.getElementById("nav");
+  let i=0;
+  for(; i<nodes.length && nodes[i].tagName!=="H2"; i++){
+    if(nodes[i].tagName==="HR") continue;
+    hero.appendChild(nodes[i].cloneNode(true));
+  }
+
+  // Secciones por H2
+  while(i<nodes.length){
+    const h2=nodes[i];
+    const id=slug(h2.textContent);
+    const sec=document.createElement("section");
+    sec.className="section"; sec.id=id;
+    const head=h2.cloneNode(true);
+    const body=document.createElement("div"); body.className="section-body";
+    sec.appendChild(head); sec.appendChild(body);
+    i++;
+    const group=[];
+    for(; i<nodes.length && nodes[i].tagName!=="H2"; i++) group.push(nodes[i]);
+    decorate(id, head.textContent, group, body);
+    content.appendChild(sec);
+
+    const a=document.createElement("a");
+    a.href="#"+id; a.textContent=head.textContent.trim();
+    navEl.appendChild(a);
+  }
+}
+
+function decorate(id, title, group, body){
+  const isItin = id.includes("itinerario");
+  const isGuide = id.includes("guia") || id.includes("lugares");
+  if(isItin){ buildDays(group, body); return; }
+  if(isGuide){ buildPlaces(group, body); return; }
+  group.forEach(n=>{
+    if(n.tagName==="UL") styleFields(n);
+    body.appendChild(n.cloneNode(true));
+  });
+}
+
+/* Fecha del título → bloque visual (día de la semana, número, mes) */
+function whenHTML(date){
+  let m=date.match(/^(\S+)\s+(\d{1,2})\s+(\S+)$/);
+  if(m) return `<span class="wd">${esc(m[1])}</span><span class="dn">${m[2]}</span><span class="mo">${esc(m[3])}</span>`;
+  m=date.match(/^(\S+)\s+(\d{1,2})(?:\s+(\S+))?\s*[–-]\s*(\S+)\s+(\d{1,2})\s+(\S+)$/);
+  if(m){
+    const mo = m[3] && m[3]!==m[6] ? `${m[3]}–${m[6]}` : m[6];
+    return `<span class="wd">${esc(m[1])}–${esc(m[4])}</span><span class="dn range">${m[2]}–${m[5]}</span><span class="mo">${esc(mo)}</span>`;
+  }
+  return `<span class="mo">${esc(date)}</span>`;
+}
+
+function buildDays(group, body){
+  const grid=document.createElement("div"); grid.className="days";
+  // Pre-contenido (p/blockquote) antes del primer h3 va directo al body
+  let k=0;
+  for(; k<group.length && group[k].tagName!=="H3"; k++){
+    if(group[k].tagName==="HR") continue;
+    body.appendChild(group[k].cloneNode(true));
+  }
+  for(; k<group.length; k++){
+    const n=group[k];
+    if(n.tagName==="H3"){
+      const card=document.createElement("article"); card.className="day";
+      const title=n.textContent.trim();
+      const parts=title.split("—");
+      const date=parts[0].trim();
+      const rest=parts.slice(1).join("—").trim();
+      if(/libre/i.test(rest)) card.classList.add("is-free");
+      card.innerHTML=`<div class="when">${whenHTML(date)}</div><div class="what"><h3>${esc(rest||date)}</h3></div>`;
+      const what=card.querySelector(".what");
+      // Añadir contenido siguiente (ul/p) hasta el próximo h3
+      while(k+1<group.length && group[k+1].tagName!=="H3"){
+        k++;
+        const c=group[k];
+        if(c.tagName==="UL"){ styleFields(c); what.appendChild(c.cloneNode(true)); }
+        else if(c.tagName!=="HR"){ what.appendChild(c.cloneNode(true)); }
+      }
+      card.dataset.search=(date+" "+card.textContent).toLowerCase();
+      grid.appendChild(card);
+    }
+  }
+  body.appendChild(grid);
+}
+
+/* Resalta la etiqueta en negrita de cada <li> (p.ej. "Hora:", "Lugar:") y marca los pendientes */
+function styleFields(ul){
+  ul.querySelectorAll("li > strong:first-child").forEach(st=>{
+    const t=st.textContent.trim();
+    if(t.endsWith(":")){
+      st.classList.add("label");
+      if(/^pendiente/i.test(t)) st.parentElement.classList.add("is-pending");
+    }
+  });
+}
+
+function buildPlaces(group, body){
+  const wrap=document.createElement("div"); wrap.className="places";
+  let k=0;
+  for(; k<group.length && group[k].tagName!=="H3"; k++){
+    if(group[k].tagName==="HR") continue;
+    body.appendChild(group[k].cloneNode(true));
+  }
+  for(; k<group.length; k++){
+    const n=group[k];
+    if(n.tagName==="H3"){
+      const det=document.createElement("details"); det.className="place";
+      const city=n.textContent.trim();
+      const sum=document.createElement("summary"); sum.innerHTML="📍 "+esc(city);
+      const pbody=document.createElement("div"); pbody.className="place-body";
+      det.appendChild(sum); det.appendChild(pbody);
+      while(k+1<group.length && group[k+1].tagName!=="H3"){
+        k++;
+        if(group[k].tagName==="HR") continue;
+        pbody.appendChild(group[k].cloneNode(true));
+      }
+      det.dataset.search=det.textContent.toLowerCase();
+      wrap.appendChild(det);
+    }
+  }
+  body.appendChild(wrap);
+}
+
+/* ---------- Búsqueda / filtro ---------- */
+function setupSearch(){
+  const q=document.getElementById("q");
+  const noRes=document.getElementById("noResults");
+  q.addEventListener("input",()=>{
+    const term=q.value.trim().toLowerCase();
+    let visible=0;
+    document.querySelectorAll("article.day, details.place").forEach(el=>{
+      const hit = !term || (el.dataset.search||"").includes(term);
+      el.style.display = hit ? "" : "none";
+      if(hit) visible++;
+      if(el.tagName==="DETAILS") el.open = term && hit;
+    });
+    // Oculta secciones sin tarjetas visibles (solo las que tienen tarjetas)
+    document.querySelectorAll("section.section").forEach(sec=>{
+      const cards=sec.querySelectorAll("article.day, details.place");
+      if(cards.length){
+        const anyVisible=[...cards].some(c=>c.style.display!=="none");
+        sec.style.display = (!term||anyVisible) ? "" : "none";
+      }
+    });
+    noRes.style.display = (term && visible===0) ? "block" : "none";
+  });
+}
+
+/* ---------- Tema ---------- */
+function setupTheme(){
+  const btn=document.getElementById("theme");
+  btn.addEventListener("click",()=>{
+    const cur=document.documentElement.getAttribute("data-theme");
+    const dark=cur ? cur==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.setAttribute("data-theme", dark?"light":"dark");
+  });
+}
+
+/* ---------- Carga del markdown (fuente de la info) ---------- */
+const MD_FILE="itinerario-mex.md";
+fetch(MD_FILE+"?t="+Date.now())
+  .then(r=>{ if(!r.ok) throw new Error(r.status); return r.text(); })
+  .then(md=>{
+    build(md);
+    setupSearch(); setupTheme();
+    document.getElementById("footer").innerHTML=
+      "Esta página se genera desde <strong>"+MD_FILE+"</strong>. Edita ese archivo y recarga para ver los cambios.";
+  })
+  .catch(err=>{
+    document.getElementById("content").innerHTML=`
+      <div class="err">
+        <h2>No se pudo cargar <code>${MD_FILE}</code></h2>
+        <p>El navegador bloquea la lectura de archivos locales al abrir el HTML con doble clic
+        (<code>file://</code>). Para verlo, abre esta carpeta con un servidor local:</p>
+        <p><strong>Opción fácil:</strong> haz doble clic en <code>abrir-itinerario.bat</code>.</p>
+        <p><strong>O desde la terminal</strong>, dentro de la carpeta:</p>
+        <p><code>npx --yes serve .</code> y abre la URL que aparezca.</p>
+        <p style="color:var(--muted);font-size:13px">Detalle técnico: ${err.message}</p>
+      </div>`;
+  });
+</script>
+</body>
+</html>

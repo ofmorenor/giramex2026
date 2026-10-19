@@ -1,0 +1,4 @@
+# Datos privados: no se publican
+*.privado.md
+*.xlsx
+~$*
