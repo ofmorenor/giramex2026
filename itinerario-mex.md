@@ -32,7 +32,6 @@ Esta es la **fuente de información** del viaje. Edita este archivo y los cambio
 - **Notas:** Tomar un Uber XL hasta casa de Abraham, aprox. 2 hrs desde el aeropuerto.
 - **Contacto:** Anfitrión Abraham Yacamán
 - **Documentos:** Carta de anfitrión (en el grupo de WhatsApp)
-- **Pendiente:** Averiguar costo aproximado del Uber.
 
 ### Vie 16 Oct — Recogida del festival y live session
 - **Hora:** 9:00 a.m. · 1:00 p.m. · 6:00 p.m.
@@ -40,7 +39,6 @@ Esta es la **fuente de información** del viaje. Edita este archivo y los cambio
 - **Lugar:** Toluca → Metepec
 - **Objetivo:** Promocionar concierto y grabar live session.
 - **Contacto:** Organizadora Arlette
-- **Pendiente:** Avisar con tiempo a Arlette nuestra llegada a MX. · Dar placa del auto a Carlos para el parqueadero de la emisora.
 
 ### Sáb 17 Oct — Festival Quimera (Metepec)
 - **Hora:** 8:00 a.m. · 7:00 p.m. · 9:00 p.m.
@@ -55,24 +53,21 @@ Esta es la **fuente de información** del viaje. Edita este archivo y los cambio
 - **Actividad:** 1) Día libre en el festival Metepec (regreso a Toluca por parte del festival 4 p.m.). 2) Vuelo de Sebas CDMX → Medellín, salida 1:20 a.m., llegada a MDE 8:15 a.m.
 - **Lugar:** Metepec → Toluca → CDMX
 - **Objetivo:** Último día del festival. Salida de Sebastián al aeropuerto en CDMX — salir de Toluca máximo a las 8 p.m.
-- **Pendiente:** Concretar cómo llegar al aeropuerto.
 
-### Lun 19 – Jue 21 Oct — Días libres en Toluca
+### Lun 19 – Mié 21 Oct — Días libres en Toluca
 - **Actividad:** Días libres, paseo por Toluca.
 - **Actividad:** Recoger carro el **lunes 19** a las 6:00pm en [Localiza](https://maps.app.goo.gl/cSicnya13ccPdLU86)
-- **Pendiente:** Sacar dinero en efectivo, cambiar dólares
 
-### Mie 21 Oct
+### Mié 21 Oct
 - **Actividad:** Temazcal con Diana
 - **Lugar:** Malinalco - [Copalli Malinalco](https://maps.app.goo.gl/WJxeDaQAtew9TSbC6)
-- **Pendiente:** Recoger a Diana en estación Centro
 
 ### Jue 22 Oct — Toluca → Cuernavaca
-- **Hora:** 10:00 a.m.
-- **Actividad:** 1) Viaje de Toluca a Cuernavaca (2 hrs). 2) Concierto en Café 5 Cielos.
+- **Hora:** 10:00 a.m. · 8:00 p.m.
+- **Actividad:** 1) Viaje de Toluca a Cuernavaca (2 hrs). 2) Concierto en El Cabaret Cuernavaca, 8 p.m.
 - **Lugar:** Cuernavaca
+- **Hospedaje:** Casa de Merary
 - **Contacto:** Organizador Mattíz
-- **Pendiente:** Concretar hora de concierto y afiches. · Definir hospedaje.
 
 ### Vie 23 Oct — Concierto Pizzas del Huerto Cultural
 - **Actividad:** Concierto Pizzas del Huerto Cultural
@@ -96,11 +91,13 @@ Esta es la **fuente de información** del viaje. Edita este archivo y los cambio
 - **Actividad:** Días libres.
 - **Pendiente:** Definir dónde vamos (lunes a miércoles). Opción Metepec — Tania localiza.
 
-### Jue 29 Oct – Lun 3 Nov — Malinalco, Día de Muertos
-- **Actividad:** Viaje a Malinalco, festival de Día de Muertos. Por definir fechas de ofrenda y concierto en El Tecorral.
+### Jue 29 Oct – Mar 3 Nov — Malinalco, Día de Muertos
+- **Hora:** Jue 29 Oct 6:00 p.m. · Sáb 31 Oct
+- **Actividad:** Viaje a Malinalco, festival de Día de Muertos. 1) Serenata de ofrendas en El Tecorral, jueves 29 a las 6 p.m. 2) Sábado 31 en la plaza.
 - **Lugar:** Malinalco
 - **Objetivo:** Días para ensayar + Malinalco + Día de Muertos.
-- **Pendiente:** Definir días de participación, hospedaje y alimentación. · Pedir carta de residencia a El Tecorral.
+- **Hospedaje:** Hospedaje y alimentación en El Tecorral.
+- **Pendiente:** Pedir carta de residencia a El Tecorral. · Confirmar hora del 31 en la plaza.
 
 ### Vie 6 Nov — Regreso a Medellín
 - **Hora:** 1:20 a.m.
@@ -114,9 +111,7 @@ Esta es la **fuente de información** del viaje. Edita este archivo y los cambio
 
 - **Entrevista con Nadia** (Malinalco) — pendiente de contactar. Contacto: Nadia.
 - Confirmar horarios y afiches de los conciertos en Cuernavaca y Tepoztlán.
-- Definir hospedaje en Cuernavaca.
-- Definir participación, hospedaje y alimentación en Malinalco · carta de residencia de El Tecorral.
-- Documento de alquiler de auto.
+- Carta de residencia de El Tecorral · hora del 31 oct en la plaza (Malinalco).
 
 ---
 
