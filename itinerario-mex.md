@@ -226,7 +226,7 @@ Esta es la **fuente de información** del viaje. Edita este archivo y los cambio
 
 ### Ciudad de México (CDMX)
 
-> Principalmente de paso (llegada y salida), pero si hay tiempo entre vuelos:
+> Principalmente de paso (llegada y salida), pero si hay tiempo entre vuelos...
 
 **Imperdibles (si hay tiempo)**
 - **Centro Histórico** — Zócalo, Catedral, Templo Mayor, Palacio de Bellas Artes.
